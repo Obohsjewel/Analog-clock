@@ -1,0 +1,444 @@
+/*==================================================
+    LUXURY ANALOG CLOCK
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*==================================================
+    RESET
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #020617,
+        #071a3d,
+        #081b29,
+        #000814
+    );
+
+}
+
+
+/*==================================================
+    ANIMATED BACKGROUND
+==================================================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top left,#00d9ff22,transparent 30%),
+
+    radial-gradient(circle at bottom right,#00ff9920,transparent 30%),
+
+    radial-gradient(circle,#ffffff05 2px,transparent 2px);
+
+    background-size:auto,auto,55px 55px;
+
+    animation:moveBackground 25s linear infinite;
+
+    z-index:-2;
+
+}
+
+@keyframes moveBackground{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-55px);
+
+    }
+
+}
+
+
+/*==================================================
+    MAIN CONTAINER
+==================================================*/
+
+.container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+
+/*==================================================
+    CLOCK BODY
+==================================================*/
+
+.clock{
+
+    position:relative;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle at top,#263b55,#08111d 80%);
+
+    border:12px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+    0 0 40px rgba(0,255,255,.18),
+
+    inset 0 0 60px rgba(255,255,255,.06),
+
+    inset 0 0 80px rgba(0,0,0,.7);
+
+}
+
+
+/*==================================================
+    DECORATIVE RINGS
+==================================================*/
+
+.outer-ring{
+
+    position:absolute;
+
+    inset:10px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.12);
+
+}
+
+.inner-ring{
+
+    position:absolute;
+
+    inset:38px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.08);
+
+}
+
+
+/*==================================================
+    TICKS CONTAINER
+==================================================*/
+
+#ticks{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+
+/*==================================================
+    MINUTE MARKERS
+==================================================*/
+
+.tick{
+
+    position:absolute;
+
+    width:2px;
+
+    height:14px;
+
+    background:#ffffff88;
+
+    left:50%;
+
+    top:10px;
+
+    transform-origin:center 200px;
+
+}
+
+
+.major-tick{
+
+    width:4px;
+
+    height:24px;
+
+    background:#00e5ff;
+
+    box-shadow:0 0 10px cyan;
+
+}
+
+
+/*==================================================
+    NUMBERS CONTAINER
+==================================================*/
+
+#numbers{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+
+/*==================================================
+    CLOCK NUMBERS
+==================================================*/
+
+.clock-number{
+
+    position:absolute;
+
+    transform:translate(-50%,-50%);
+
+    color:white;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    text-shadow:
+
+    0 0 8px cyan,
+
+    0 0 15px cyan;
+
+}
+
+
+/*==================================================
+    CLOCK HANDS
+==================================================*/
+
+.hand{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:50%;
+
+    transform-origin:bottom center;
+
+    border-radius:20px;
+
+    z-index:20;
+
+}
+
+
+/*==================================================
+    HOUR HAND
+==================================================*/
+
+.hour-hand{
+
+    width:9px;
+
+    height:105px;
+
+    background:white;
+
+    box-shadow:0 0 10px white;
+
+}
+
+
+/*==================================================
+    MINUTE HAND
+==================================================*/
+
+.minute-hand{
+
+    width:6px;
+
+    height:145px;
+
+    background:#00d9ff;
+
+    box-shadow:0 0 10px cyan;
+
+}
+
+
+/*==================================================
+    SECOND HAND
+==================================================*/
+
+.second-hand{
+
+    width:3px;
+
+    height:170px;
+
+    background:#ff365f;
+
+    box-shadow:0 0 15px #ff365f;
+
+}
+
+
+/*==================================================
+    CENTER DOT
+==================================================*/
+
+.center-dot{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:22px;
+
+    height:22px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:white;
+
+    border:5px solid #ff365f;
+
+    box-shadow:
+
+    0 0 20px white,
+
+    0 0 25px #ff365f;
+
+    z-index:30;
+
+}
+
+
+/*==================================================
+    DIGITAL CLOCK
+==================================================*/
+
+.digital-clock{
+
+    color:white;
+
+    font-size:40px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    text-shadow:0 0 12px cyan;
+
+}
+
+
+/*==================================================
+    DATE
+==================================================*/
+
+.date{
+
+    color:#d6d6d6;
+
+    font-size:18px;
+
+    letter-spacing:1px;
+
+}
+
+
+/*==================================================
+    RESPONSIVE
+==================================================*/
+
+@media(max-width:600px){
+
+    .clock{
+
+        width:320px;
+
+        height:320px;
+
+    }
+
+    .tick{
+
+        transform-origin:center 150px;
+
+    }
+
+    .clock-number{
+
+        font-size:20px;
+
+    }
+
+    .hour-hand{
+
+        height:80px;
+
+    }
+
+    .minute-hand{
+
+        height:110px;
+
+    }
+
+    .second-hand{
+
+        height:130px;
+
+    }
+
+    .digital-clock{
+
+        font-size:28px;
+
+    }
+
+}
